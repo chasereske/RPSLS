@@ -1,0 +1,24 @@
+{
+  "name": "rpsls",
+  "version": "1.0.0",
+  "description": "This is a JavaScript project to build out the rock-paper-scissors-lizard-spock game using the concepts of OOP.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chasereske/RPSLS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chasereske/RPSLS/issues"
+  },
+  "homepage": "https://github.com/chasereske/RPSLS#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
