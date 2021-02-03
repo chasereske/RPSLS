@@ -11,6 +11,7 @@ class Game {
     constructor() {
         this.playerOne //build out if human or AI
         this.playerTwo //build out if human or AI
+        this.gestureChoices = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
     }
 
     displayRules() {
@@ -37,7 +38,27 @@ class Game {
         constructor() {
             super(score);
             this.name = "Computer";
+            this.choice = computerChoice(); 
         }
     }
+
+    computerChoice() {
+        let randomNumber = Math.random();
+        let computerChoice;
+
+        if(randomNumber < 0.19) {
+            computerChoice = 'rock';
+        } else if(randomNumber <= 0.38) {
+            computerChoice = 'paper';
+        } else if(randomNumber <= 0.57) {
+            computerChoice = 'scissors';
+        } else if(randomNumber = 0.76) {
+            computerChoice = 'lizard';
+        } else {
+            computerChoice = 'spock';
+        }
+        return computerChoice;
+    }
+
 }
 
