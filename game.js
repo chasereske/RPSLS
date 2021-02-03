@@ -36,12 +36,24 @@ class Game {
         console.log("The winner of RPSLS will, at a minimum, need to win the best of three games to be crowned the victor!");
     }
 
-    chooseGameType() {
+    chooseGameType() { //be sure to design in validation
+        console.log("Do you want to play 'single player' or 'multiplayer'?");
+        gameTypeChoice = prompt();
 
+        if(gameTypeChoice === 'single player') { //I need to create the players and make sure I import correctly
+            this.playerOne = new HumanPlayer();
+            this.playerTwo = new ComputerPlayer();
+        } else if (gameTypeChoice === 'multiplayer') {
+            this.playerOne = new HumanPlayer();
+            this.playerTwo = new HumanPlayer();
+        } else {
+            console.log("You did not choose a valid game type.");
+            this.chooseGameType();
+        }
     }
 
     makeGestureChoices() {
-        
+
     }
 
     computerChoice() {
