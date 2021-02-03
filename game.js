@@ -60,5 +60,24 @@ class Game {
         return computerChoice;
     }
 
+    determineWinner(playerOneChoice, playerTwoChoice) { //I still need to build out the ability to capture choices
+        
+        if(playerOneChoice === 'rock' && (playerTwoChoice === 'spock' || playerTwoChoice === 'paper')) {
+            playerTwoScore += 1; //I nedd to still build out the ability to capture the score
+        } else if(playerOneChoice === 'paper' && (playerTwoChoice === 'lizard' || playerTwoChoice === 'scissors')) {
+            playerTwoScore += 1;
+        } else if(playerOneChoice === 'scissors' && (playerTwoChoice === 'rock' || playerTwoChoice === 'spock')) {
+            playerTwoScore += 1;
+        } else if(playerOneChoice === 'lizard' && (playerTwoChoice === 'rock' || playerTwoChoice === 'scissors')) {
+            playerTwoScore += 1;
+        } else if(playerOneChoice === 'spock' && (playerTwoChoice === 'lizard' || playerTwoChoice === 'paper')) {
+            playerTwoScore += 1;
+        } else if(playerOneChoice === playerTwoChoice) {
+            playerOneScore = 0;
+            playerTwoScore = 0;
+        } else {
+            playerOneScore +=1;
+        }
+    }
 }
 
