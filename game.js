@@ -14,6 +14,15 @@ class Game {
         this.gestureChoices = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
     }
 
+    runGame() {
+        this.displayRules();
+
+        this.determineWinner();
+
+        this.displayOverallGameWinner();
+    
+    }
+
     displayRules() {
         console.log("Welcome to Rock-Paper-Scissors-Lizard-Spock Game!");
         console.log("Two players will compete by choosing gestures.");
@@ -62,21 +71,32 @@ class Game {
 
     determineWinner(playerOneChoice, playerTwoChoice) { //I still need to build out the ability to capture choices
         
-        if(playerOneChoice === 'rock' && (playerTwoChoice === 'spock' || playerTwoChoice === 'paper')) {
-            playerTwoScore += 1; //I nedd to still build out the ability to capture the score
-        } else if(playerOneChoice === 'paper' && (playerTwoChoice === 'lizard' || playerTwoChoice === 'scissors')) {
-            playerTwoScore += 1;
-        } else if(playerOneChoice === 'scissors' && (playerTwoChoice === 'rock' || playerTwoChoice === 'spock')) {
-            playerTwoScore += 1;
-        } else if(playerOneChoice === 'lizard' && (playerTwoChoice === 'rock' || playerTwoChoice === 'scissors')) {
-            playerTwoScore += 1;
-        } else if(playerOneChoice === 'spock' && (playerTwoChoice === 'lizard' || playerTwoChoice === 'paper')) {
-            playerTwoScore += 1;
-        } else if(playerOneChoice === playerTwoChoice) {
-            playerOneScore = 0;
-            playerTwoScore = 0;
+        while(this.playerOne.score < 3 && this.playerTwo.score < 3) {
+
+            if(playerOneChoice === 'rock' && (playerTwoChoice === 'spock' || playerTwoChoice === 'paper')) {
+                playerTwoScore += 1; //I nedd to still build out the ability to capture the score
+            } else if(playerOneChoice === 'paper' && (playerTwoChoice === 'lizard' || playerTwoChoice === 'scissors')) {
+                playerTwoScore += 1;
+            } else if(playerOneChoice === 'scissors' && (playerTwoChoice === 'rock' || playerTwoChoice === 'spock')) {
+                playerTwoScore += 1;
+            } else if(playerOneChoice === 'lizard' && (playerTwoChoice === 'rock' || playerTwoChoice === 'scissors')) {
+                playerTwoScore += 1;
+            } else if(playerOneChoice === 'spock' && (playerTwoChoice === 'lizard' || playerTwoChoice === 'paper')) {
+                playerTwoScore += 1;
+            } else if(playerOneChoice === playerTwoChoice) {
+                playerOneScore = 0;
+                playerTwoScore = 0;
+            } else {
+                playerOneScore +=1;
+            }
+        }
+    }
+
+    displayOverallGameWinner() {
+        if(this.playerOne.score > this.playerTwo.score) {
+            console.log("Player One wins this game!");
         } else {
-            playerOneScore +=1;
+            console.log("Player Two wins this game!");
         }
     }
 }
