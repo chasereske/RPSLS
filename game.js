@@ -19,6 +19,10 @@ class Game {
     runGame() {
         this.displayRules();
 
+        this.chooseGameType();
+
+        this.makeGestureChoices();
+
         this.determineWinner();
 
         this.displayOverallGameWinner();
@@ -32,6 +36,13 @@ class Game {
         console.log("The winner of RPSLS will, at a minimum, need to win the best of three games to be crowned the victor!");
     }
 
+    chooseGameType() {
+
+    }
+
+    makeGestureChoices() {
+        
+    }
 
     computerChoice() {
         let randomNumber = Math.random();
