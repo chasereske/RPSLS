@@ -7,6 +7,8 @@
 //needs to be a best of 3 to decide winner
 
 //construct a Game class and use this to be the parent for single and multiplayer games
+const prompt = require('prompt-sync')();
+
 class Game {
     constructor() {
         this.playerOne //build out if human or AI
@@ -30,26 +32,6 @@ class Game {
         console.log("The winner of RPSLS will, at a minimum, need to win the best of three games to be crowned the victor!");
     }
 
-    class Player {
-        constructor() {
-            this.score = 0;
-        }
-    }
-
-    class HumanPlayer extends Player {
-        constructor(name) {
-            super(score);
-            this.name = name;
-        }
-    }
-
-    class ComputerPlayer extends Player {
-        constructor() {
-            super(score);
-            this.name = "Computer";
-            this.choice = computerChoice(); 
-        }
-    }
 
     computerChoice() {
         let randomNumber = Math.random();
@@ -73,21 +55,21 @@ class Game {
         
         while(this.playerOne.score < 3 && this.playerTwo.score < 3) {
 
-            if(playerOneChoice === 'rock' && (playerTwoChoice === 'spock' || playerTwoChoice === 'paper')) {
-                playerTwoScore += 1; //I nedd to still build out the ability to capture the score
-            } else if(playerOneChoice === 'paper' && (playerTwoChoice === 'lizard' || playerTwoChoice === 'scissors')) {
-                playerTwoScore += 1;
-            } else if(playerOneChoice === 'scissors' && (playerTwoChoice === 'rock' || playerTwoChoice === 'spock')) {
-                playerTwoScore += 1;
-            } else if(playerOneChoice === 'lizard' && (playerTwoChoice === 'rock' || playerTwoChoice === 'scissors')) {
-                playerTwoScore += 1;
-            } else if(playerOneChoice === 'spock' && (playerTwoChoice === 'lizard' || playerTwoChoice === 'paper')) {
-                playerTwoScore += 1;
-            } else if(playerOneChoice === playerTwoChoice) {
-                playerOneScore = 0;
-                playerTwoScore = 0;
+            if(this.playerOne.choice === 'rock' && (this.playerTwo.choice === 'spock' || this.playerTwo.choice === 'paper')) {
+                this.playerTwo.score += 1; //I nedd to still build out the ability to capture the score
+            } else if(this.playerOne.choice === 'paper' && (this.playerTwo.choice === 'lizard' || this.playerTwo.choice === 'scissors')) {
+                this.playerTwo.score += 1;
+            } else if(this.playerOne.choice === 'scissors' && (this.playerTwo.choice === 'rock' || this.playerTwo.choice === 'spock')) {
+                this.playerTwo.score += 1;
+            } else if(this.playerOne.choice === 'lizard' && (this.playerTwo.choice === 'rock' || this.playerTwo.choice === 'scissors')) {
+                this.playerTwo.score += 1;
+            } else if(this.playerOne.choice === 'spock' && (this.playerTwo.choice === 'lizard' || this.playerTwo.choice === 'paper')) {
+                this.playerTwo.score += 1;
+            } else if(this.playerOne.choice === this.playerTwo.choice) {
+                this.playerOne.score  = 0;
+                this.playerTwo.score = 0;
             } else {
-                playerOneScore +=1;
+                this.playerOne.score +=1;
             }
         }
     }
