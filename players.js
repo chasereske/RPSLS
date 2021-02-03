@@ -20,3 +20,7 @@ class ComputerPlayer extends Player {
         this.choice = computerChoice(); 
     }
 }
+
+module.exports.Player = Player;
+module.exports.HumanPlayer = HumanPlayer;
+module.exports.ComputerPlayer = ComputerPlayer;

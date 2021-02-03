@@ -8,6 +8,7 @@
 
 //construct a Game class and use this to be the parent for single and multiplayer games
 const prompt = require('prompt-sync')();
+const players = require('./players')
 
 class Game {
     constructor() {
@@ -32,6 +33,8 @@ class Game {
     
     }
 
+    //This code section is what is being run during the runGame() method
+
     displayRules() {
         console.log("Welcome to Rock-Paper-Scissors-Lizard-Spock Game!");
         console.log("Two players will compete by choosing gestures.");
@@ -39,7 +42,7 @@ class Game {
         console.log("The winner of RPSLS will, at a minimum, need to win the best of three games to be crowned the victor!");
     }
 
-    chooseGameType() { //be sure to design in validation
+    chooseGameType() { 
         console.log("Do you want to play 'single player' or 'multiplayer'?");
         gameTypeChoice = prompt();
 
@@ -56,6 +59,33 @@ class Game {
 
         return gameTypeChoice;
     }
+
+    makeGestureChoices() {
+        if(this.gameTypeChoice === "single player") {
+            this.makeSinglePlayerGestureChoices();
+        } else {
+            this.makeMultiplayerGestureChoices();
+        }
+    }
+    
+    determineWinner() {
+
+        if(this.gameTypeChoice === "single player") {
+            this.determineSinglePlayerWinner();
+        } else {
+            this.determineMultiplayerWinner();
+        }
+    }
+
+    displayOverallGameWinner() {
+        if(this.playerOne.score > this.playerTwo.score) {
+            console.log("Player One wins this game!");
+        } else {
+            console.log("Player Two wins this game!");
+        }
+    }
+
+    //This code block are the specifics around how runGame() works
 
     makeSinglePlayerGestureChoices() {
 
@@ -94,15 +124,6 @@ class Game {
             computerChoice = 'spock';
         }
         return computerChoice;
-    }
-
-    determineWinner() {
-
-        if(this.gameTypeChoice === "single player") {
-            this.determineSinglePlayerWinner();
-        } else {
-            this.determineMultiplayerWinner();
-        }
     }
     
     determineSinglePlayerWinner() { //I still need to build out the ability to capture choices
@@ -154,13 +175,6 @@ class Game {
             }
         }
     }
-
-    displayOverallGameWinner() {
-        if(this.playerOne.score > this.playerTwo.score) {
-            console.log("Player One wins this game!");
-        } else {
-            console.log("Player Two wins this game!");
-        }
-    }
 }
 
+module.exports.Game = Game;
