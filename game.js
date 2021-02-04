@@ -92,6 +92,15 @@ class Game {
         console.log("Player One: What is your choice of gesture?");
         this.playerOneChoice = prompt();
 
+        for(let i=0; i<this.gestureChoices.length; i++) {
+            if(this.playerOneChoice === this.gestureChoices[i]){
+                console.log("That's a great choice! Good luck!");
+            } else{
+                console.log("That is an invalid choice. Please enter one of the following: rock, paper, scissors, lizard, or spock.");
+                this.makeSinglePlayerGestureChoices();
+            }
+        }
+
         this.playerTwoChoice = this.computerChoice();
         console.log("The computer's choice is: " + this.playerTwoChoice);
 
@@ -103,8 +112,26 @@ class Game {
         console.log("Player One: What is your choice of gesture?");
         this.playerOneChoice = prompt();
 
+        for(let i=0; i<this.gestureChoices.length; i++) {
+            if(this.playerOneChoice === this.gestureChoices[i]){
+                console.log("That's a great choice! Good luck!");
+            } else{
+                console.log("That is an invalid choice. Please enter one of the following: rock, paper, scissors, lizard, or spock.");
+                this.makeSinglePlayerGestureChoices();
+            }
+        }
+
         console.log("Player Two: What is your choice of gesture?");
         this.playerTwoChoice = prompt();
+
+        for(let i=0; i<this.gestureChoices.length; i++) {
+            if(this.playerTwoChoice === this.gestureChoices[i]){
+                console.log("That's a great choice! Good luck!");
+            } else{
+                console.log("That is an invalid choice. Please enter one of the following: rock, paper, scissors, lizard, or spock.");
+                this.makeSinglePlayerGestureChoices();
+            }
+        }
 
         return this.playerOneChoice, this.playerTwoChoice;
     }
