@@ -12,8 +12,8 @@ const players = require('./players')
 
 class Game {
     constructor() {
-        this.playerOne; //build out if human or AI
-        this.playerTwo; //build out if human or AI
+        this.playerOne; 
+        this.playerTwo; 
         this.gestureChoices = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
         this.playerOneChoice;
         this.playerTwoChoice;
@@ -44,14 +44,14 @@ class Game {
 
     chooseGameType() { 
         console.log("Do you want to play 'single player' or 'multiplayer'?");
-        gameTypeChoice = prompt();
+        let gameTypeChoice = prompt();
 
         if(gameTypeChoice === 'single player') { //I need to create the players and make sure I import correctly
-            this.playerOne = new HumanPlayer();
-            this.playerTwo = new ComputerPlayer();
+            this.playerOne = new players.HumanPlayer();
+            this.playerTwo = new players.ComputerPlayer();
         } else if (gameTypeChoice === 'multiplayer') {
-            this.playerOne = new HumanPlayer();
-            this.playerTwo = new HumanPlayer();
+            this.playerOne = new players.HumanPlayer();
+            this.playerTwo = new players.HumanPlayer();
         } else {
             console.log("You did not choose a valid game type.");
             this.chooseGameType();
@@ -92,7 +92,7 @@ class Game {
         console.log("Player One: What is your choice of gesture?");
         this.playerOneChoice = prompt();
 
-        this.playerTwoChoice = computerChoice();
+        this.playerTwoChoice = this.computerChoice();
 
         return this.playerOneChoice, this.playerTwoChoice;
     }

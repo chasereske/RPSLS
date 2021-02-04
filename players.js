@@ -7,17 +7,17 @@ class Player {
 }
 
 class HumanPlayer extends Player {
-    constructor(name) {
-        super(score);
-        this.name = name;
+    constructor() {
+        super();
+        this.name; //Still haven't built out the name yet
     }
 }
 
 class ComputerPlayer extends Player {
     constructor() {
-        super(score);
+        super();
         this.name = "Computer";
-        this.choice = computerChoice(); 
+        this.choice; //Temporarily took this out to see if the code works 
     }
 }
 
