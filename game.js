@@ -158,19 +158,21 @@ class Game {
         
         while(this.playerOne.score < 3 && this.playerTwo.score < 3) {
 
+            console.log("Player One Score: " + this.playerOne.score + ".\nPlayer Two Score: " + this.playerTwo.score + ".");
+            
             this.makeMultiplayerGestureChoices();
 
-            if(this.playerOne.choice === 'rock' && (this.playerTwo.choice === 'spock' || this.playerTwo.choice === 'paper')) {
+            if(this.playerOneChoice === 'rock' && (this.playerTwoChoice === 'spock' || this.playerTwoChoice === 'paper')) {
                 this.playerTwo.score += 1; //I nedd to still build out the ability to capture the score
-            } else if(this.playerOne.choice === 'paper' && (this.playerTwo.choice === 'lizard' || this.playerTwo.choice === 'scissors')) {
+            } else if(this.playerOneChoice === 'paper' && (this.playerTwoChoice === 'lizard' || this.playerTwoChoice === 'scissors')) {
                 this.playerTwo.score += 1;
-            } else if(this.playerOne.choice === 'scissors' && (this.playerTwo.choice === 'rock' || this.playerTwo.choice === 'spock')) {
+            } else if(this.playerOneChoice === 'scissors' && (this.playerTwoChoice === 'rock' || this.playerTwoChoice === 'spock')) {
                 this.playerTwo.score += 1;
-            } else if(this.playerOne.choice === 'lizard' && (this.playerTwo.choice === 'rock' || this.playerTwo.choice === 'scissors')) {
+            } else if(this.playerOneChoice === 'lizard' && (this.playerTwoChoice === 'rock' || this.playerTwoChoice === 'scissors')) {
                 this.playerTwo.score += 1;
-            } else if(this.playerOne.choice === 'spock' && (this.playerTwo.choice === 'lizard' || this.playerTwo.choice === 'paper')) {
+            } else if(this.playerOneChoice === 'spock' && (this.playerTwoChoice === 'lizard' || this.playerTwoChoice === 'paper')) {
                 this.playerTwo.score += 1;
-            } else if(this.playerOne.choice === this.playerTwo.choice) {
+            } else if(this.playerOneChoice === this.playerTwoChoice) {
                 this.playerOne.score  += 0;
                 this.playerTwo.score += 0;
             } else {
