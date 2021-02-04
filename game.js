@@ -93,6 +93,7 @@ class Game {
         this.playerOneChoice = prompt();
 
         this.playerTwoChoice = this.computerChoice();
+        console.log("The computer's choice is: " + this.playerTwoChoice);
 
         return this.playerOneChoice, this.playerTwoChoice;
     }
@@ -118,7 +119,7 @@ class Game {
             computerChoice = 'paper';
         } else if(randomNumber <= 0.57) {
             computerChoice = 'scissors';
-        } else if(randomNumber = 0.76) {
+        } else if(randomNumber <= 0.76) {
             computerChoice = 'lizard';
         } else {
             computerChoice = 'spock';
@@ -130,8 +131,10 @@ class Game {
         
         while(this.playerOne.score < 3 && this.playerTwo.score < 3) {
 
-            this.makeSinglePlayerGestureChoices();
+            console.log("Player One Score: " + this.playerOne.score + ".\nPlayer Two Score: " + this.playerTwo.score + ".");
 
+            this.makeSinglePlayerGestureChoices();
+            
             if(this.playerOneChoice === 'rock' && (this.playerTwoChoice === 'spock' || this.playerTwoChoice === 'paper')) {
                 this.playerTwo.score += 1; //I nedd to still build out the ability to capture the score
             } else if(this.playerOneChoice === 'paper' && (this.playerTwoChoice === 'lizard' || this.playerTwoChoice === 'scissors')) {
@@ -143,8 +146,8 @@ class Game {
             } else if(this.playerOneChoice === 'spock' && (this.playerTwoChoice === 'lizard' || this.playerTwoChoice === 'paper')) {
                 this.playerTwo.score += 1;
             } else if(this.playerOneChoice === this.playerTwoChoice) {
-                this.playerOne.score  = 0;
-                this.playerTwo.score = 0;
+                this.playerOne.score  += 0;
+                this.playerTwo.score += 0;
             } else {
                 this.playerOne.score +=1;
             }
@@ -168,8 +171,8 @@ class Game {
             } else if(this.playerOne.choice === 'spock' && (this.playerTwo.choice === 'lizard' || this.playerTwo.choice === 'paper')) {
                 this.playerTwo.score += 1;
             } else if(this.playerOne.choice === this.playerTwo.choice) {
-                this.playerOne.score  = 0;
-                this.playerTwo.score = 0;
+                this.playerOne.score  += 0;
+                this.playerTwo.score += 0;
             } else {
                 this.playerOne.score +=1;
             }
