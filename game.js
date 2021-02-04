@@ -46,7 +46,7 @@ class Game {
         console.log("Do you want to play 'single player' or 'multiplayer'?");
         let gameTypeChoice = prompt();
 
-        if(gameTypeChoice === 'single player') { //I need to create the players and make sure I import correctly
+        if(gameTypeChoice === 'single player') { 
             this.playerOne = new players.HumanPlayer();
             this.playerTwo = new players.ComputerPlayer();
         } else if (gameTypeChoice === 'multiplayer') {
@@ -95,7 +95,7 @@ class Game {
         this.playerTwoChoice = this.computerChoice();
         console.log("The computer's choice is: " + this.playerTwoChoice);
 
-        return this.playerOneChoice, this.playerTwoChoice;
+        return this.playerOneChoice, this.playerTwoChoice; 
     }
 
     makeMultiplayerGestureChoices() {
@@ -127,8 +127,8 @@ class Game {
         return computerChoice;
     }
     
-    determineSinglePlayerWinner() { //I still need to build out the ability to capture choices
-        
+    determineSinglePlayerWinner() { 
+    
         while(this.playerOne.score < 3 && this.playerTwo.score < 3) {
 
             console.log("Player One Score: " + this.playerOne.score + ".\nPlayer Two Score: " + this.playerTwo.score + ".");
@@ -136,7 +136,7 @@ class Game {
             this.makeSinglePlayerGestureChoices();
             
             if(this.playerOneChoice === 'rock' && (this.playerTwoChoice === 'spock' || this.playerTwoChoice === 'paper')) {
-                this.playerTwo.score += 1; //I nedd to still build out the ability to capture the score
+                this.playerTwo.score += 1; 
             } else if(this.playerOneChoice === 'paper' && (this.playerTwoChoice === 'lizard' || this.playerTwoChoice === 'scissors')) {
                 this.playerTwo.score += 1;
             } else if(this.playerOneChoice === 'scissors' && (this.playerTwoChoice === 'rock' || this.playerTwoChoice === 'spock')) {
@@ -154,7 +154,7 @@ class Game {
         }
     }
 
-    determineMultiplayerWinner() { //I still need to build out the ability to capture choices
+    determineMultiplayerWinner() { 
         
         while(this.playerOne.score < 3 && this.playerTwo.score < 3) {
 
@@ -163,7 +163,7 @@ class Game {
             this.makeMultiplayerGestureChoices();
 
             if(this.playerOneChoice === 'rock' && (this.playerTwoChoice === 'spock' || this.playerTwoChoice === 'paper')) {
-                this.playerTwo.score += 1; //I nedd to still build out the ability to capture the score
+                this.playerTwo.score += 1; 
             } else if(this.playerOneChoice === 'paper' && (this.playerTwoChoice === 'lizard' || this.playerTwoChoice === 'scissors')) {
                 this.playerTwo.score += 1;
             } else if(this.playerOneChoice === 'scissors' && (this.playerTwoChoice === 'rock' || this.playerTwoChoice === 'spock')) {

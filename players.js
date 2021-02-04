@@ -19,6 +19,8 @@ class ComputerPlayer extends Player {
         this.name = "Computer";
         this.choice; //Temporarily took this out to see if the code works 
     }
+
+    // methods 
 }
 
 module.exports.Player = Player;
