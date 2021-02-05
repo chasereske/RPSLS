@@ -88,16 +88,30 @@ class Game {
     //This code block are the specifics around how runGame() works
 
     makeSinglePlayerGestureChoices() {
+        let playerOneValidation = 'true';
 
+        while(playerOneValidation === 'true'){
         console.log("Player One: What is your choice of gesture?");
         this.playerOneChoice = prompt();
 
-        for(let i=0; i<this.gestureChoices.length; i++) {
-            if(this.playerOneChoice === this.gestureChoices[i]){
+        
+            if(this.playerOneChoice === 'rock'){
                 console.log("That's a great choice! Good luck!");
+                playerOneValidation = 'false';
+            } else if(this.playerOneChoice === 'paper'){
+                console.log("That's a great choice! Good luck!");
+                playerOneValidation = 'false';
+            } else if(this.playerOneChoice === 'scissors'){
+                console.log("That's a great choice! Good luck!");
+                playerOneValidation = 'false';
+            } else if(this.playerOneChoice === 'lizard'){
+                console.log("That's a great choice! Good luck!");
+                playerOneValidation = 'false';
+            } else if(this.playerOneChoice === 'spock'){
+                console.log("That's a great choice! Good luck!"); 
+                playerOneValidation = 'false';   
             } else{
                 console.log("That is an invalid choice. Please enter one of the following: rock, paper, scissors, lizard, or spock.");
-                this.makeSinglePlayerGestureChoices();
             }
         }
 
@@ -108,28 +122,56 @@ class Game {
     }
 
     makeMultiplayerGestureChoices() {
+        let playerOneValidation = 'true';
+        let playerTwoValidation = 'true';
 
+        while(playerOneValidation === 'true'){
         console.log("Player One: What is your choice of gesture?");
         this.playerOneChoice = prompt();
 
-        for(let i=0; i<this.gestureChoices.length; i++) {
-            if(this.playerOneChoice === this.gestureChoices[i]){
+        
+            if(this.playerOneChoice === 'rock'){
                 console.log("That's a great choice! Good luck!");
+                playerOneValidation = 'false';
+            } else if(this.playerOneChoice === 'paper'){
+                console.log("That's a great choice! Good luck!");
+                playerOneValidation = 'false';
+            } else if(this.playerOneChoice === 'scissors'){
+                console.log("That's a great choice! Good luck!");
+                playerOneValidation = 'false';
+            } else if(this.playerOneChoice === 'lizard'){
+                console.log("That's a great choice! Good luck!");
+                playerOneValidation = 'false';
+            } else if(this.playerOneChoice === 'spock'){
+                console.log("That's a great choice! Good luck!"); 
+                playerOneValidation = 'false';   
             } else{
                 console.log("That is an invalid choice. Please enter one of the following: rock, paper, scissors, lizard, or spock.");
-                this.makeSinglePlayerGestureChoices();
             }
         }
 
+        while(playerTwoValidation === 'true'){
         console.log("Player Two: What is your choice of gesture?");
         this.playerTwoChoice = prompt();
 
-        for(let i=0; i<this.gestureChoices.length; i++) {
-            if(this.playerTwoChoice === this.gestureChoices[i]){
+        
+            if(this.playerTwoChoice === 'rock'){
                 console.log("That's a great choice! Good luck!");
+                playerTwoValidation = 'false';
+            } else if(this.playerTwoChoice === 'paper'){
+                console.log("That's a great choice! Good luck!");
+                playerTwoValidation = 'false';
+            } else if(this.playerTwoChoice === 'scissors'){
+                console.log("That's a great choice! Good luck!");
+                playerTwoValidation = 'false';
+            } else if(this.playerTwoChoice === 'lizard'){
+                console.log("That's a great choice! Good luck!");
+                playerTwoValidation = 'false';
+            } else if(this.playerTwoChoice === 'spock'){
+                console.log("That's a great choice! Good luck!");
+                playerTwoValidation = 'false';    
             } else{
                 console.log("That is an invalid choice. Please enter one of the following: rock, paper, scissors, lizard, or spock.");
-                this.makeSinglePlayerGestureChoices();
             }
         }
 
