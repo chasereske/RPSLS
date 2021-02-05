@@ -25,9 +25,11 @@ class Game {
 
         this.gameTypeChoice = this.chooseGameType();
 
-        this.makeGestureChoices();
+        while(this.playerOne.score < 3 && this.playerTwo.score < 3) {
+            this.makeGestureChoices();
 
-        this.determineWinner();
+            this.determineWinner();
+        }
 
         this.displayOverallGameWinner();
     
@@ -112,6 +114,7 @@ class Game {
                 playerOneValidation = 'false';   
             } else{
                 console.log("That is an invalid choice. Please enter one of the following: rock, paper, scissors, lizard, or spock.");
+                playerOneValidation = 'true';
             }
         }
 
@@ -146,7 +149,8 @@ class Game {
                 console.log("That's a great choice! Good luck!"); 
                 playerOneValidation = 'false';   
             } else{
-                console.log("That is an invalid choice. Please enter one of the following: rock, paper, scissors, lizard, or spock.");
+                console.log("That is an invalid choice. Please enter one of the following: rock, paper, scissors, lizard, or spock.")
+                playerOneValidation = 'true';
             }
         }
 
@@ -172,6 +176,7 @@ class Game {
                 playerTwoValidation = 'false';    
             } else{
                 console.log("That is an invalid choice. Please enter one of the following: rock, paper, scissors, lizard, or spock.");
+                playerTwoValidation = 'true';
             }
         }
 
@@ -197,13 +202,7 @@ class Game {
     }
     
     determineSinglePlayerWinner() { 
-    
-        while(this.playerOne.score < 3 && this.playerTwo.score < 3) {
-
-            console.log("Player One Score: " + this.playerOne.score + ".\nPlayer Two Score: " + this.playerTwo.score + ".");
-
-            this.makeSinglePlayerGestureChoices();
-            
+           
             if(this.playerOneChoice === 'rock' && (this.playerTwoChoice === 'spock' || this.playerTwoChoice === 'paper')) {
                 this.playerTwo.score += 1; 
             } else if(this.playerOneChoice === 'paper' && (this.playerTwoChoice === 'lizard' || this.playerTwoChoice === 'scissors')) {
@@ -219,17 +218,13 @@ class Game {
                 this.playerTwo.score += 0;
             } else {
                 this.playerOne.score +=1;
-            }
-        }
+            } 
+
+           console.log("Player One Score: " + this.playerOne.score + ".\nPlayer Two Score: " + this.playerTwo.score + ".");
+        
     }
 
     determineMultiplayerWinner() { 
-        
-        while(this.playerOne.score < 3 && this.playerTwo.score < 3) {
-
-            console.log("Player One Score: " + this.playerOne.score + ".\nPlayer Two Score: " + this.playerTwo.score + ".");
-            
-            this.makeMultiplayerGestureChoices();
 
             if(this.playerOneChoice === 'rock' && (this.playerTwoChoice === 'spock' || this.playerTwoChoice === 'paper')) {
                 this.playerTwo.score += 1; 
@@ -247,7 +242,7 @@ class Game {
             } else {
                 this.playerOne.score +=1;
             }
-        }
+            console.log("Player One Score: " + this.playerOne.score + ".\nPlayer Two Score: " + this.playerTwo.score + ".");
     }
 }
 

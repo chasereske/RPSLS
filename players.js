@@ -11,6 +11,8 @@ class HumanPlayer extends Player {
         super();
         this.name; //Still haven't built out the name yet
     }
+
+    
 }
 
 class ComputerPlayer extends Player {
